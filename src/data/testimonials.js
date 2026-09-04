@@ -1,0 +1,26 @@
+export const testimonials = [
+  {
+    id: 1,
+    name: "Alex Tomato",
+    position: "Brand Manager",
+    company: "Instant Design",
+    companyUrl: "#",
+    rating: 5,
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud.",
+    avatar: "/images/avatars/400x400_t01.webp",
+    projectImage: "/images/testimonials/1400x1200_t01.webp",
+    projectUrl: "#",
+  },
+  {
+    id: 2,
+    name: "Jenny Lemon",
+    position: "SEO",
+    company: "Creative People",
+    companyUrl: "#",
+    rating: 5,
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud.",
+    avatar: "/images/avatars/400x400_t02.webp",
+    projectImage: "/images/testimonials/1400x1200_t02.webp",
+    projectUrl: "#",
+  },
+];
