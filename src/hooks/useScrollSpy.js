@@ -5,13 +5,34 @@ export function useScrollSpy(sectionIds, offset = 100) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY + offset;
+      const currentScrollY = window.scrollY;
+
+      // When near the top, always activate the first section (home)
+      if (currentScrollY < 120) {
+        setActiveId(sectionIds[0]);
+        return;
+      }
+
+      // Check if user scrolled to the bottom of the page
+      if (
+        window.innerHeight + Math.ceil(currentScrollY) >=
+        document.documentElement.scrollHeight - 50
+      ) {
+        setActiveId(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
+      const scrollPosition = currentScrollY + offset;
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {
         const section = document.getElementById(sectionIds[i]);
-        if (section && section.offsetTop <= scrollY) {
-          setActiveId(sectionIds[i]);
-          break;
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const top = rect.top + currentScrollY;
+          if (top <= scrollPosition) {
+            setActiveId(sectionIds[i]);
+            break;
+          }
         }
       }
     };

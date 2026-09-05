@@ -72,54 +72,55 @@ export default function HeroSection() {
         />
       </div>
 
+      {/* Hero Content — also fixed, stays in place while page scrolls over */}
+      <div className="fixed inset-0 z-[1] pointer-events-none flex items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full pointer-events-auto">
+          <div
+            ref={headlineRef}
+            className={`max-w-3xl transition-all duration-1000 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <p className="text-body-base md:text-body-lg text-brand-text-secondary dark:text-brand-text-dark-secondary mb-4 leading-relaxed">
+              {personalInfo.subtitle.split('\n').map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i < personalInfo.subtitle.split('\n').length - 1 && <br />}
+                </span>
+              ))}
+            </p>
+
+            <h1 className="font-display text-display-lg text-brand-text-primary dark:text-brand-text-dark-primary mb-6">
+              {personalInfo.title.split('\n').map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i < personalInfo.title.split('\n').length - 1 && <br />}
+                </span>
+              ))}
+            </h1>
+
+            <a
+              href="#portfolio"
+              onClick={handleScrollClick}
+              className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-brand-text-secondary dark:text-brand-text-dark-secondary border-b border-brand-border dark:border-brand-border-dark pb-2 transition-all duration-300 hover:text-brand-accent hover:border-brand-accent group"
+            >
+              <span>Scroll for more</span>
+              <ArrowDownRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Spacer — provides scroll height so sections below start after hero viewport */}
       <section
         id="home"
         ref={sectionRef}
-        className="relative z-10 flex flex-col"
-        style={{ minHeight: '70vh' }}
-      >
-        {/* Hero Content — pushed down to clear navbar */}
-        <div className="relative flex-1 flex items-center max-w-7xl mx-auto px-6 w-full pt-36 pb-12 lg:pt-44 lg:pb-16 mt-8">
-          <motion.div style={{ y: textY }}>
-            <div
-              ref={headlineRef}
-              className={`max-w-3xl transition-all duration-1000 ease-out ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <p className="text-body-base md:text-body-lg text-brand-text-secondary dark:text-brand-text-dark-secondary mb-4 leading-relaxed">
-                {personalInfo.subtitle.split('\n').map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    {i < personalInfo.subtitle.split('\n').length - 1 && <br />}
-                  </span>
-                ))}
-              </p>
-
-              <h1 className="font-display text-display-lg text-brand-text-primary dark:text-brand-text-dark-primary mb-6">
-                {personalInfo.title.split('\n').map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    {i < personalInfo.title.split('\n').length - 1 && <br />}
-                  </span>
-                ))}
-              </h1>
-
-              <a
-                href="#portfolio"
-                onClick={handleScrollClick}
-                className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-brand-text-secondary dark:text-brand-text-dark-secondary border-b border-brand-border dark:border-brand-border-dark pb-2 transition-all duration-300 hover:text-brand-accent hover:border-brand-accent group"
-              >
-                <span>Scroll for more</span>
-                <ArrowDownRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5"
-                />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        className="relative z-10"
+        style={{ height: '100vh' }}
+      />
     </>
   );
 }

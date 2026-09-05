@@ -3,6 +3,7 @@ import Masonry from 'react-masonry-css';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from '@phosphor-icons/react';
 import SectionName from '../components/ui/SectionName';
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
@@ -39,6 +40,14 @@ function PortfolioItem({ item, index, onClick }) {
     return () => observer.disconnect();
   }, []);
 
+  const handleClick = () => {
+    if (item.link) {
+      window.open(item.link, '_blank', 'noopener,noreferrer');
+    } else {
+      onClick(index);
+    }
+  };
+
   return (
     <figure
       ref={figureRef}
@@ -46,7 +55,7 @@ function PortfolioItem({ item, index, onClick }) {
         hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
-      onClick={() => onClick(index)}
+      onClick={handleClick}
     >
       <div className="relative rounded-2xl overflow-hidden">
         <img
@@ -56,21 +65,35 @@ function PortfolioItem({ item, index, onClick }) {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-          <h5 className="text-white font-medium text-lg">{item.title}</h5>
-          <small className="text-white/70 text-sm">{item.category}</small>
+        <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-between">
+          <div>
+            <h5 className="text-white font-medium text-lg">{item.title}</h5>
+            <small className="text-white/70 text-sm">{item.category}</small>
+          </div>
+          {item.link && (
+            <span className="w-9 h-9 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white shrink-0 group-hover:bg-white group-hover:text-black transition-colors duration-300">
+              <ArrowUpRight size={18} weight="bold" />
+            </span>
+          )}
         </div>
       </div>
-      <figcaption className="mt-4 px-1">
-        <h5 className="font-medium text-brand-text-primary dark:text-brand-text-dark-primary">
-          {item.title}
-          <small className="block text-sm text-brand-text-secondary dark:text-brand-text-dark-secondary mt-0.5 font-normal">
-            {item.category}
-          </small>
-        </h5>
-        <p className="text-body-sm text-brand-text-secondary dark:text-brand-text-dark-secondary mt-2 line-clamp-2">
-          {item.description}
-        </p>
+      <figcaption className="mt-4 px-1 flex items-start justify-between gap-2">
+        <div>
+          <h5 className="font-medium text-brand-text-primary dark:text-brand-text-dark-primary group-hover:text-brand-accent transition-colors duration-300">
+            {item.title}
+            <small className="block text-sm text-brand-text-secondary dark:text-brand-text-dark-secondary mt-0.5 font-normal">
+              {item.category}
+            </small>
+          </h5>
+          <p className="text-body-sm text-brand-text-secondary dark:text-brand-text-dark-secondary mt-2 line-clamp-2">
+            {item.description}
+          </p>
+        </div>
+        {item.link && (
+          <span className="text-brand-text-secondary dark:text-brand-text-dark-secondary group-hover:text-brand-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 shrink-0 mt-1">
+            <ArrowUpRight size={18} weight="bold" />
+          </span>
+        )}
       </figcaption>
     </figure>
   );

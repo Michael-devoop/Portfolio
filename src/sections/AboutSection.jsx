@@ -42,7 +42,7 @@ export default function AboutSection() {
     if (!isInView) return;
 
     const img = new Image();
-    img.src = '/images/works/1400x1050_w04.webp';
+    img.src = 'https://res.cloudinary.com/dkceowz64/image/upload/v1788638336/ChatGPT_Image_Jul_9_2026_04_03_11_PM_fqbudz.png';
     img.onload = () => setImageLoaded(true);
   }, [isInView]);
 
@@ -57,12 +57,12 @@ export default function AboutSection() {
 
             {/* About Image with fade-in on load */}
             <AnimateInUp className="mb-block">
-              <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden bg-brand-light-card dark:bg-brand-dark-card">
+              <div className="relative w-full max-w-md mx-auto aspect-square rounded-3xl overflow-hidden bg-neutral-950 flex items-center justify-center shadow-xl border border-black/10 dark:border-white/10">
                 <img
                   ref={imageRef}
-                  src="/images/works/1400x1050_w04.webp"
+                  src="https://res.cloudinary.com/dkceowz64/image/upload/v1788638336/ChatGPT_Image_Jul_9_2026_04_03_11_PM_fqbudz.png"
                   alt="About me"
-                  className={`w-full h-full object-cover transition-opacity duration-700 ${
+                  className={`w-full h-full object-contain transition-opacity duration-700 ${
                     imageLoaded ? 'opacity-100' : 'opacity-0'
                   }`}
                   loading="lazy"
