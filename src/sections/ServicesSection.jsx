@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { BezierCurve, Code, Cube, ChartLine } from '@phosphor-icons/react';
+import { BezierCurve, Code, Cube, ChartLine, Database, Layout, Sparkle } from '@phosphor-icons/react';
 import SectionName from '../components/ui/SectionName';
 import SectionTitle from '../components/ui/SectionTitle';
 import { services } from '../data/services';
@@ -9,6 +9,9 @@ const iconMap = {
   Code,
   Cube,
   ChartLine,
+  Database,
+  Layout,
+  Sparkle,
 };
 
 function ServiceCard({ service, index }) {
@@ -121,7 +124,7 @@ export default function ServicesSection() {
           <div className="section-content-col">
             <SectionTitle
               title="Creating impactful projects"
-              subtitle="I wonder if I've been changed in the night? Let me think. Was I the same when I got up this morning? I almost think I can remember feeling a little different."
+              subtitle="From modern responsive web applications and enterprise software to custom Odoo workflows and AI-accelerated development."
             />
 
             {/* Stacking Cards */}

@@ -1,28 +1,29 @@
 export const contactInfo = {
   locations: [
-    { id: 1, city: "Odesa, Ukraine", zip: "65000", mapUrl: "https://maps.app.goo.gl/xMJXTEUeHkv6kYRQ6" },
-    { id: 2, city: "Kyiv, Ukraine", zip: "02000", mapUrl: "https://maps.app.goo.gl/CGucvMFbkYuZiprv6" },
+    { id: 1, city: "Addis Ababa, Ethiopia", zip: "East Africa", mapUrl: "https://maps.app.goo.gl/xMJXTEUeHkv6kYRQ6" },
   ],
   phones: [
-    { id: 1, number: "+1 212-708-9400", href: "tel:+12127089400" },
-    { id: 2, number: "+1 510-457-0211", href: "tel:+15104570211" },
+    { id: 1, number: "+251 974 415 544", href: "tel:+251974415544" },
   ],
   emails: [
-    { id: 1, address: "hello@example.com", href: "mailto:example@example.com?subject=Message%20from%20your%20site" },
-    { id: 2, address: "support@example.com", href: "mailto:example@example.com?subject=Message%20from%20your%20site" },
+    { id: 1, address: "Michaelabebe591@gmail.com", href: "mailto:Michaelabebe591@gmail.com?subject=Message%20from%20your%20site" },
   ],
 };
 
 export const personalInfo = {
-  name: "Michael Abebe",
+  name: "Michael Abebe Ayalew",
+  displayName: "Michael Abebe",
   subtitle: "Hello!\nI am Michael Abebe",
-  title: "Full stack developer\n& digital marketer",
-  bio: "I'm a passionate full stack developer and digital marketer who thrives at the intersection of technology and creativity. I build modern, scalable web applications and craft data-driven marketing strategies that deliver real results. From elegant frontends to robust backends, from SEO to social media — I bring ideas to life across the entire digital spectrum.",
-  phone: "+1 212-708-9400",
-  phoneHref: "tel:+12127089400",
-  email: "hello@yourdomain.com",
-  emailHref: "mailto:example@example.com?subject=Message%20from%20your%20site",
-  location: "Odesa, Ukraine",
+  title: "Full-Stack\nDeveloper",
+  role: "Full-Stack Developer",
+  description: "I'm a passionate full-stack developer specializing in building exceptional digital experiences. I create intuitive, accessible web applications that balance beautiful design with robust functionality.",
+  bio: "I'm Michael Abebe, a multi-disciplinary designer and full-stack developer. I create meaningful digital experiences, combining design, development, and systems thinking to deliver solutions that are both functional and visually engaging.\n\nI work across enterprise software, web applications, and modern JavaScript frameworks, approaching each project with precision and clarity. My goal is to balance form and function, turning ambitious ideas into impactful, real-world solutions.",
+  phone: "+251 974 415 544",
+  phoneHref: "tel:+251974415544",
+  email: "Michaelabebe591@gmail.com",
+  emailHref: "mailto:Michaelabebe591@gmail.com?subject=Message%20from%20your%20site",
+  location: "Addis Ababa, Ethiopia",
   locationUrl: "https://maps.app.goo.gl/xMJXTEUeHkv6kYRQ6",
-  blockquote: "Here we must run as fast as we can, just to stay in place. And if you wish to go anywhere you must run twice as fast as that.",
+  github: "https://github.com/Michael-devoop",
+  blockquote: "Committed to building practical technology for businesses in Ethiopia and beyond.",
 };

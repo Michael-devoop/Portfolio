@@ -99,6 +99,12 @@ export default function HeroSection() {
               ))}
             </h1>
 
+            {personalInfo.description && (
+              <p className="text-body-base md:text-body-lg text-brand-text-secondary dark:text-brand-text-dark-secondary mb-8 leading-relaxed max-w-2xl">
+                {personalInfo.description}
+              </p>
+            )}
+
             <a
               href="#portfolio"
               onClick={handleScrollClick}

@@ -1,9 +1,4 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Star } from '@phosphor-icons/react';
+import { ArrowUpRight } from '@phosphor-icons/react';
 import SectionName from '../components/ui/SectionName';
 import SectionTitle from '../components/ui/SectionTitle';
 import AnimateInUp from '../components/ui/AnimateInUp';
@@ -12,7 +7,6 @@ import StarburstIcon from '../assets/svg/StarburstIcon';
 import { education } from '../data/education';
 import { experience } from '../data/experience';
 import { tools } from '../data/tools';
-import { testimonials } from '../data/testimonials';
 import { socials } from '../data/socials';
 
 /* ─── Resume Item ─── */
@@ -32,14 +26,36 @@ function ResumeItem({ item, variant = 'education' }) {
               {item.title}
             </h4>
             {variant === 'education' ? (
-              <a
-                href={item.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-brand-text-secondary dark:text-brand-text-dark-secondary underline underline-offset-4 decoration-brand-border dark:decoration-brand-border-dark hover:text-brand-accent hover:decoration-brand-accent transition-colors duration-300"
-              >
-                {item.source}
-              </a>
+              <div>
+                <a
+                  href={item.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-brand-text-secondary dark:text-brand-text-dark-secondary underline underline-offset-4 decoration-brand-border dark:decoration-brand-border-dark hover:text-brand-accent hover:decoration-brand-accent transition-colors duration-300 inline-flex items-center gap-1"
+                >
+                  <span>{item.source}</span>
+                  <ArrowUpRight size={13} className="opacity-70" />
+                </a>
+                {item.certificates && item.certificates.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-2.5">
+                    {item.certificates.map((cert, idx) => (
+                      <a
+                        key={idx}
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-brand-light-surface dark:bg-white/5 border border-brand-border dark:border-white/10 text-brand-text-primary dark:text-brand-text-dark-primary hover:border-brand-accent hover:text-brand-accent transition-all duration-200 group"
+                      >
+                        <span>{cert.name}</span>
+                        <ArrowUpRight
+                          size={12}
+                          className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                        />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ) : (
               <p className="text-sm text-brand-text-secondary dark:text-brand-text-dark-secondary">
                 in the{' '}
@@ -85,68 +101,6 @@ function ToolCard({ tool, index }) {
   );
 }
 
-/* ─── Testimonial Card ─── */
-function TestimonialCard({ testimonial }) {
-  return (
-    <AnimateInUp>
-      <div className="glass-card overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
-          {/* Text Side */}
-          <div className="p-6 md:p-10 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-4 mb-6">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-14 h-14 rounded-full object-cover"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="font-semibold text-brand-text-primary dark:text-brand-text-dark-primary">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-brand-text-secondary dark:text-brand-text-dark-secondary">
-                    {testimonial.position} in{' '}
-                    <a href={testimonial.companyUrl} className="underline underline-offset-2 hover:text-brand-accent transition-colors">
-                      {testimonial.company}
-                    </a>
-                  </p>
-                  <div className="flex gap-0.5 mt-1">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} size={14} weight="fill" className="text-amber-400" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className="text-body-base leading-relaxed text-brand-text-secondary dark:text-brand-text-dark-secondary">
-                {testimonial.text}
-              </p>
-            </div>
-            <div className="mt-6">
-              <a
-                href={testimonial.projectUrl}
-                className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-brand-text-primary dark:text-brand-text-dark-primary border-b border-brand-border dark:border-brand-border-dark pb-1 hover:text-brand-accent hover:border-brand-accent transition-all duration-300"
-              >
-                <span>Project page</span>
-                <ArrowRight size={14} />
-              </a>
-            </div>
-          </div>
-
-          {/* Image Side */}
-          <div className="relative aspect-square lg:aspect-auto">
-            <img
-              src={testimonial.projectImage}
-              alt={`${testimonial.name} project`}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </AnimateInUp>
-  );
-}
 
 /* ─── Social Link ─── */
 function SocialLink({ social }) {
@@ -225,49 +179,7 @@ export default function ResumeSection() {
               </div>
             </div>
 
-            {/* ── Testimonials ── */}
-            <div className="mb-section">
-              <AnimateInUp>
-                <p className="text-caption uppercase tracking-[0.15em] font-medium text-brand-text-secondary dark:text-brand-text-dark-secondary mb-6">
-                  My client's stories
-                </p>
-              </AnimateInUp>
 
-              <div className="relative">
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  spaceBetween={24}
-                  slidesPerView={1}
-                  navigation={{
-                    prevEl: '.swiper-btn-prev',
-                    nextEl: '.swiper-btn-next',
-                  }}
-                  pagination={{
-                    el: '.swiper-custom-pagination',
-                    type: 'fraction',
-                  }}
-                >
-                  {testimonials.map((t) => (
-                    <SwiperSlide key={t.id}>
-                      <TestimonialCard testimonial={t} />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-
-                {/* Custom Nav */}
-                <div className="flex items-center gap-4 mt-6">
-                  <button className="swiper-btn-prev inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-brand-text-primary dark:text-brand-text-dark-primary border-b border-brand-border dark:border-brand-border-dark pb-1 hover:text-brand-accent hover:border-brand-accent transition-all duration-300">
-                    <ArrowLeft size={14} />
-                    <span>Prev</span>
-                  </button>
-                  <span className="swiper-custom-pagination text-sm text-brand-text-secondary dark:text-brand-text-dark-secondary tabular-nums" />
-                  <button className="swiper-btn-next inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-brand-text-primary dark:text-brand-text-dark-primary border-b border-brand-border dark:border-brand-border-dark pb-1 hover:text-brand-accent hover:border-brand-accent transition-all duration-300">
-                    <span>Next</span>
-                    <ArrowRight size={14} />
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="section-aside-col" />

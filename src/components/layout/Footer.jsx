@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="py-8 border-b border-brand-border dark:border-brand-border-dark">
         <Marquee speed={20} className="text-brand-text-primary dark:text-brand-text-dark-primary">
           <a
-            href="mailto:example@example.com?subject=Message%20from%20your%20site"
+            href="mailto:Michaelabebe591@gmail.com?subject=Project%20Inquiry%20from%20Portfolio"
             className="flex items-center gap-8 mx-8 text-display-md font-display italic hover:text-brand-accent transition-colors duration-300"
           >
             <span>Got an idea?</span>
@@ -29,7 +29,7 @@ export default function Footer() {
       {/* Footer Bottom */}
       <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
         <p className="text-body-sm text-brand-text-secondary dark:text-brand-text-dark-secondary">
-          © {new Date().getFullYear()} Blayden. All rights reserved.
+          © {new Date().getFullYear()} Michael Abebe Ayalew. All rights reserved.
         </p>
         <button
           onClick={scrollToTop}

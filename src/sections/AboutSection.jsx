@@ -76,12 +76,25 @@ export default function AboutSection() {
               {/* Bio Text */}
               <div className="md:col-span-2">
                 <AnimateInUp>
-                  <p className="text-body-lg leading-relaxed text-brand-text-secondary dark:text-brand-text-dark-secondary mb-8">
-                    {personalInfo.bio}
-                  </p>
+                  <div className="space-y-4 mb-8">
+                    {personalInfo.bio.split('\n\n').map((paragraph, i) => (
+                      <p
+                        key={i}
+                        className="text-body-lg leading-relaxed text-brand-text-secondary dark:text-brand-text-dark-secondary"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </AnimateInUp>
                 <AnimateInUp delay={0.1}>
-                  <Button href="#" variant="default">
+                  <Button
+                    href="/Michael_Abebe_CV.pdf"
+                    download="Michael_Abebe_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="default"
+                  >
                     Download CV
                   </Button>
                 </AnimateInUp>
@@ -123,6 +136,18 @@ export default function AboutSection() {
                       className="text-sm font-medium text-brand-text-primary dark:text-brand-text-dark-primary hover:text-brand-accent transition-colors duration-300 underline underline-offset-4 decoration-brand-border dark:decoration-brand-border-dark hover:decoration-brand-accent"
                     >
                       {personalInfo.location}
+                    </a>
+                  </h6>
+                </AnimateInUp>
+                <AnimateInUp delay={0.2}>
+                  <h6>
+                    <a
+                      href={personalInfo.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-brand-text-primary dark:text-brand-text-dark-primary hover:text-brand-accent transition-colors duration-300 underline underline-offset-4 decoration-brand-border dark:decoration-brand-border-dark hover:decoration-brand-accent"
+                    >
+                      github.com/Michael-devoop
                     </a>
                   </h6>
                 </AnimateInUp>

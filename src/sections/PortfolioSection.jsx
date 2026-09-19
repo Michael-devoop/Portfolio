@@ -132,7 +132,7 @@ export default function PortfolioSection() {
           <div className="section-content-col">
             <SectionTitle
               title="Design, tech & some magic"
-              subtitle="I wonder if I've been changed in the night? Let me think. Was I the same when I got up this morning? I almost think I can remember feeling a little different."
+              subtitle="A showcase of real-world web apps, client websites, enterprise ERP systems, and custom Odoo modules built with modern frameworks."
             />
 
             {/* Masonry Gallery */}
@@ -153,10 +153,15 @@ export default function PortfolioSection() {
               </Masonry>
             </div>
 
-            {/* Behance Link */}
+            {/* GitHub Profile Link */}
             <div className="mt-12 flex justify-center">
-              <Button variant="circleIcon" href="#">
-                Behance profile
+              <Button
+                variant="circleIcon"
+                href="https://github.com/Michael-devoop"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub profile
               </Button>
             </div>
 
