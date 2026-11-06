@@ -32,17 +32,7 @@ export const portfolioItems = [
     description:
       "Professional portfolio and booking platform for Girma Moges Photography showcasing wedding and portrait sessions with smooth navigation.",
   },
-  {
-    id: 4,
-    title: "Buzu Cleaning",
-    category: "Web Development & Services",
-    image: "https://res.cloudinary.com/dkceowz64/image/upload/v1788638113/Screenshot_286_icsj1w.png",
-    link: "https://www.buzucleaning.ca/",
-    width: 1339,
-    height: 623,
-    description:
-      "Professional commercial and residential cleaning service platform with online booking and instant service estimates.",
-  },
+  
   {
     id: 7,
     title: "Odoo Custom Enterprise Modules",
